@@ -1,0 +1,48 @@
+@use "index" as *;
+
+.header {
+
+    // .header__container
+
+    &__container {}
+
+    // .header__link-logo
+
+    &__link-logo {}
+
+    // .header__menu
+
+    &__menu {}
+
+    // .header__actions
+
+    &__actions {}
+}
+
+.menu {
+
+    // .menu__body
+
+    &__body {}
+
+    // .menu__list
+
+    &__list {}
+
+    // .menu__item
+
+    &__item {}
+
+    // .menu__link
+
+    &__link {}
+}
+
+.actions-header {
+
+    // .actions-header__button
+
+    &__button {
+        @include button;
+    }
+}

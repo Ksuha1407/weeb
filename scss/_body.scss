@@ -1,0 +1,31 @@
+@use 'index' as *;
+
+html,
+body {
+    block-size: 100%;
+    min-width: 20rem;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.125rem;
+    background: #0F172A;
+    color: #fff;
+}
+
+.wrapper {
+    overflow: clip;
+    min-block-size: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper>main {
+    flex-grow: 1;
+}
+
+[class*="__container"] {
+    max-inline-size: 1310px;
+    padding-inline: 0.9375rem;
+    margin-inline: auto;
+}

@@ -1,0 +1,13 @@
+@use "../mobile" as *;
+
+@mixin button {
+    border-radius: 0.5rem;
+    background: #9333EA;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.0313rem;
+    padding-inline: 40px;
+    padding-block: 16px;
+    text-align: center;
+}
