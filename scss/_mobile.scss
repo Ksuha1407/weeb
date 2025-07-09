@@ -1,0 +1,51 @@
+// Переменные
+$laptop: 1200px;
+$laptop_m: 1092px;
+$tablet_b: 991.9808px;
+$tablet: 767.9808px;
+$mobile: 479.9808px;
+$mobile_s: 392.9808px;
+
+// Миксины
+@mixin laptop {
+    @media (max-width: $laptop) {
+        @content;
+    }
+}
+
+@mixin laptop_m {
+    @media (max-width: $laptop_m) {
+        @content;
+    }
+}
+
+@mixin tablet_b {
+    @media (max-width: $tablet_b) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin mobile_s {
+    @media (max-width: $mobile_s) {
+        @content;
+    }
+}
+
+@mixin hover {
+    @media (any-hover: hover) {
+        @content;
+    }
+
+}

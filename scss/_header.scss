@@ -1,0 +1,307 @@
+@use "index" as *;
+
+.header {
+    padding-block: 24px;
+
+    @include tablet_b {
+        padding-block: 15px;
+    }
+
+    // .header__container
+
+    &__container {
+        max-inline-size: 1030px;
+    }
+
+    // .header__body
+
+    &__body {
+        border-radius: 20px;
+        background-color: #192131;
+        box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25),
+            0px 0px 15px 0px rgba(0, 0, 0, 0.07);
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        column-gap: 46px;
+        row-gap: 10px;
+        padding: 24px;
+
+        @include tablet_b {
+            padding: 15px;
+            column-gap: 25px;
+        }
+
+        @include tablet {
+            padding-block: 8px;
+            padding-inline-start: 24px;
+            padding-inline-end: 8px;
+            grid-template-columns: auto auto;
+            justify-content: space-between;
+        }
+    }
+
+    // .header__link-logo
+
+    &__link-logo {
+        position: relative;
+        z-index: 3;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1.1;
+        padding-block: 6px;
+        transition: color 0.3s ease;
+
+        @include hover {
+            &:hover {
+                color: #9333EA;
+            }
+        }
+
+        &:active {
+            color: #9333EA;
+        }
+    }
+
+}
+
+.menu {
+    @include tablet {
+        position: fixed;
+        inset-inline-start: -100%;
+        inset-block-start: 0;
+        block-size: 100%;
+        inline-size: 100%;
+        transition: all 0.3s ease;
+        overflow: auto;
+        background-color: #0F172A;
+        padding-block-start: 105px;
+        padding-inline: 15px;
+        padding-block-end: 30px;
+
+        &::before {
+            content: "";
+            position: fixed;
+            z-index: 2;
+            block-size: 64px;
+            inset-inline-start: 15px;
+            inset-block-start: 15px;
+            inset-inline-end: 15px;
+
+            transition: visibility 0.3s ease;
+
+            visibility: hidden;
+
+            border-radius: 20px;
+            background-color: #192131;
+            box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0px 0px 15px 0px rgba(0, 0, 0, 0.07);
+        }
+    }
+
+    // .menu__list
+
+    &__list {
+        display: flex;
+        align-items: center;
+        column-gap: 32px;
+        row-gap: 5px;
+        flex-wrap: wrap;
+
+        @include tablet_b {
+            column-gap: 20px;
+        }
+
+        @include tablet {
+            flex-direction: column;
+            align-items: flex-end;
+            row-gap: 25px;
+            padding-inline-end: 18px;
+        }
+
+        @include mobile {
+            &:not(:last-child) {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+
+
+    // .menu__link
+
+    &__link {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+        letter-spacing: 0.5px;
+        transition: color 0.3s ease;
+
+        @include hover {
+            &:hover {
+                color: #9333EA;
+                text-decoration: underline;
+            }
+        }
+
+        &:active {
+            color: #9333EA;
+            text-decoration: underline;
+        }
+
+        @include tablet {
+            font-size: 28px;
+        }
+
+    }
+
+    &__button {
+        @include tablet {
+            display: none;
+        }
+
+        @include mobile {
+            display: block !important;
+            inline-size: 100%;
+            text-align: center;
+            font-size: 24px !important;
+
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+        }
+
+
+    }
+
+    &__button--transparent {
+        @include button--transparent;
+    }
+
+    &__button--mini {
+        @include button--mini;
+
+
+    }
+
+}
+
+
+.actions-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 16px;
+    position: relative;
+    z-index: 3;
+
+    @include tablet_b {
+        column-gap: 10px;
+    }
+
+    // .actions-header__button
+
+    &__button {
+        @include mobile {
+            display: none;
+        }
+    }
+
+    // .actions-header__button--transparent
+
+    &__button--transparent {
+        @include button--transparent;
+    }
+
+    // .actions-header__button--mini
+
+    &__button--mini {
+        @include button--mini;
+
+        @include tablet_b {
+            padding-inline: 15px;
+        }
+    }
+}
+
+
+.icon-menu {
+    display: none;
+
+    @include tablet {
+        display: block;
+        inline-size: 48px;
+        block-size: 48px;
+        position: relative;
+        z-index: 3;
+
+
+        span,
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            block-size: 4px;
+            border-radius: 4px;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        &::before {
+            inset-inline-start: 10px;
+            inset-block-start: 14px;
+            inline-size: 14px;
+        }
+
+        span {
+            inset-inline-start: 50%;
+            inset-block-start: 50%;
+            transform: translate(-50%, -50%);
+            inline-size: 28px;
+        }
+
+        &::after {
+            inset-inline-end: 10px;
+            inset-block-end: 14px;
+            inline-size: 14px;
+        }
+
+    }
+
+
+}
+
+.open-menu {
+    .menu {
+        @include tablet {
+            inset-inline-start: 0;
+        }
+    }
+
+    .menu {
+        @include tablet {
+            &::before {
+                visibility: visible;
+            }
+        }
+    }
+
+    .icon-menu {
+        @include tablet {
+
+            span {
+                transform: translate(-50%, -50%) rotate(-45deg);
+                inline-size: 33px;
+            }
+
+            &::before {
+                transform: translate(0, 1px) rotate(45deg);
+            }
+
+            &::after {
+                transform: translate(0, -1px) rotate(45deg);
+            }
+        }
+    }
+
+}
