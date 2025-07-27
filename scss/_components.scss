@@ -1,0 +1,111 @@
+@use "sass:math";
+@use "_colors.scss" as *;
+@use "_mixins.scss" as *;
+
+
+.components {
+    background-color: $bluegrey-9;
+
+    // .components__container
+    &__container {
+        display: inline-flex;
+        flex-direction: column;
+        gap: toRem(15);
+    }
+}
+
+.button {
+    border-radius: toRem(8);
+    background-color: $purple-6;
+    @include typography('BL', 500);
+    letter-spacing: toRem(0.5);
+    padding-inline: toRem(40);
+    padding-block: toRem(16);
+    text-align: center;
+
+    @media (any-hover: hover) and (any-pointer: fine) {
+        &:hover {
+            background-color: $purple-9;
+        }
+    }
+
+    &:active {
+        background-color: $purple-9;
+    }
+
+    // .button--transparent
+    &--transparent {
+        @include typography("BM", 500, 1.5);
+        border-radius: toRem(8);
+        letter-spacing: 0.0313rem;
+        text-align: center;
+        background: transparent;
+        padding-inline: toRem(24);
+        padding-block: toRem(12);
+        transition: all 0.3s ease;
+
+        @media (any-hover: hover) and (any-pointer: fine) {
+            &:hover {
+                background-color: $purple-9;
+            }
+        }
+
+        &:active {
+            background-color: $purple-6;
+        }
+    }
+
+    // .button--mini
+    &--mini {
+        @include typography("BM", 500, 1.5);
+        border-radius: toRem(8);
+        background-color: $purple-6;
+        letter-spacing: toRem(0.5);
+        text-align: center;
+        padding-inline: toRem(28);
+        padding-block: toRem(12);
+        transition: all 0.3s ease;
+
+        @media (any-hover: hover) and (any-pointer: fine) {
+            &:hover {
+                background-color: $purple-9;
+            }
+        }
+
+        &:active {
+            background-color: $purple-9;
+        }
+    }
+
+    // .button--white-border
+    &--white-border {
+        @include typography("BL", 500, 1.2);
+        letter-spacing: toRem(0.5);
+        background: transparent;
+        border: toRem(2) solid $white;
+        padding-inline: toRem(31);
+        padding-block: toRem(16);
+        transition: all 0.3s ease;
+
+        @media (any-hover: hover) and (any-pointer: fine) {
+            &:hover {
+                background-color: $purple-9;
+            }
+        }
+
+
+        &:active {
+            background-color: $purple-6;
+        }
+    }
+}
+
+.components {}
+
+.button {}
+
+.button--mini {}
+
+.button--transparent {}
+
+.button--white-border {}

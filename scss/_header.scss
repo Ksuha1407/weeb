@@ -1,0 +1,275 @@
+@use "sass:math";
+@use "_mixins.scss" as *;
+@use "_colors.scss" as *;
+@use "_components.scss";
+
+
+.header {
+    background-color: $bluegrey-9;
+    @include adaptiveValue("padding-block", 24, 15);
+
+    // .header__container
+    &__container {
+        max-width: toRem($containerWidthHeader) !important;
+    }
+
+    // .header__body
+    &__body {
+        border-radius: toRem(20);
+        background-color: $blueGrey-8;
+        box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25),
+            0px 0px 15px 0px rgba(0, 0, 0, 0.07);
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        column-gap: toRem(46);
+        row-gap: toRem(10);
+        padding: toRem(24);
+
+        @media (max-width:toEm($tablet)) {
+            padding: toRem(15);
+            column-gap: toRem(25);
+        }
+
+        @media (max-width:toEm($mobile)) {
+            padding-block: toRem(8);
+            padding-inline-start: toRem(24);
+            padding-inline-end: toRem(8);
+            grid-template-columns: auto auto;
+            justify-content: space-between;
+        }
+
+    }
+
+    // .header__link-logo
+    &__link-logo {
+        position: relative;
+        z-index: 3;
+        @include typography("h5", 700);
+        padding-block: toRem(6);
+        transition: color 0.3s ease;
+
+        @media (any-hover: hover) and (any-pointer: fine) {
+            &:hover {
+                color: $purple-6;
+            }
+        }
+
+        &:active {
+            color: $purple-6;
+        }
+    }
+
+    // .header__menu
+    // &__menu {}
+
+    // .header__actions
+    // &__actions {}
+}
+
+.menu {
+    @media (max-width:toEm($mobile)) {
+        position: fixed;
+        inset-inline-start: -100%;
+        inset-block-start: 0;
+        block-size: 100%;
+        inline-size: 100%;
+        transition: all 0.3s ease;
+        overflow: auto;
+        background-color: $bluegrey-9;
+        padding-block-start: toRem(105);
+        padding-inline: toRem(15);
+        padding-block-end: toRem(30);
+
+        &::before {
+            content: "";
+            position: fixed;
+            z-index: 2;
+            block-size: toRem(64);
+            inset-inline-start: toRem(15);
+            inset-block-start: toRem(15);
+            inset-inline-end: toRem(15);
+
+            transition: visibility 0.3s ease;
+
+            visibility: hidden;
+
+            border-radius: toRem(20);
+            background-color: $blueGrey-8;
+            box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0px 0px 15px 0px rgba(0, 0, 0, 0.07);
+        }
+    }
+
+
+    // .menu__list
+    &__list {
+        display: flex;
+        align-items: center;
+        column-gap: toRem(32);
+        row-gap: toRem(5);
+        flex-wrap: wrap;
+
+        @media (max-width:toEm($tablet)) {
+            column-gap: toRem(20);
+        }
+
+        @media (max-width:toEm($mobile)) {
+            flex-direction: column;
+            align-items: flex-end;
+            row-gap: toRem(25);
+            padding-inline-end: toRem(18);
+        }
+
+        @media (max-width:toEm($mobileSmall)) {
+            &:not(:last-child) {
+                margin-bottom: toRem(30);
+            }
+
+            .menu__link {
+                font-size: toRem(24);
+            }
+        }
+
+
+    }
+
+    // .menu__item
+    // &__item {}
+
+    // .menu__link
+    &__link {
+        @include typography("BM", 500);
+        letter-spacing: toRem(0.5);
+        transition: color 0.3s ease;
+
+        @media (any-hover: hover) and (any-pointer: fine) {
+            &:hover {
+                color: $purple-6;
+                text-decoration: underline;
+            }
+        }
+
+        &:active {
+            color: $purple-6;
+            text-decoration: underline;
+        }
+    }
+}
+
+.actions-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: toRem(16);
+    position: relative;
+    z-index: 3;
+
+    @media (max-width:toEm($tablet)) {
+        column-gap: toRem(10);
+    }
+
+
+
+    // .actions-header__button
+    &__button {}
+
+    // .actions-header__icon-menu
+    &__icon-menu {}
+}
+
+.button {
+    @media (max-width:toEm($mobileSmall)) {
+        display: none;
+    }
+
+
+    // .button--transparent
+    &--transparent {}
+
+    // .button--mini
+    &--mini {
+        @media (max-width:toEm($tablet)) {
+            padding-inline: toRem(15);
+        }
+
+    }
+}
+
+.icon-menu {
+    display: none;
+
+    @media (max-width:toEm($mobile)) {
+        display: block;
+        inline-size: toRem(48);
+        block-size: toRem(48);
+        position: relative;
+        z-index: 3;
+
+        span,
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            block-size: toRem(4);
+            border-radius: toRem(4);
+            background-color: $white;
+            transition: all 0.3s ease;
+        }
+
+        &::before {
+            inset-inline-start: toRem(10);
+            inset-block-start: toRem(14);
+            inline-size: toRem(14);
+        }
+
+        span {
+            inset-inline-start: 50%;
+            inset-block-start: 50%;
+            transform: translate(-50%, -50%);
+            inline-size: toRem(28);
+        }
+
+        &::after {
+            inset-inline-end: toRem(10);
+            inset-block-end: toRem(14);
+            inline-size: toRem(14);
+        }
+    }
+}
+
+.open-menu {
+    .menu {
+        @media (max-width:toEm($mobile)) {
+            inset-inline-start: 0;
+        }
+
+    }
+
+    .menu {
+        @media (max-width:toEm($mobile)) {
+            &::before {
+                visibility: hidden;
+            }
+        }
+
+    }
+
+    .icon-menu {
+        @media (max-width:toEm($mobile)) {
+            span {
+                transform: translate(-50%, -50%) rotate(-45deg);
+
+            }
+
+            &::before {
+                transform: translate(0, 1px) rotate(45deg);
+            }
+
+            &::after {
+                transform: translate(0, -2px) rotate(45deg);
+            }
+        }
+
+    }
+}
