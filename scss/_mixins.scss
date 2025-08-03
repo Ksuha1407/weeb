@@ -110,6 +110,8 @@ $responsiveType: 1;
 }
 }
 
+// Типографія
+
 @mixin typography($size: "S", $weight: 400, $adapt: 1, $sizeMob: 0) {
     $fontSize: 14;
     $fontSizeMob: 14;
@@ -142,8 +144,8 @@ $responsiveType: 1;
     }
 
     @if ($size =="BL") {
-        $fontSize: 18;
-        $fontSizeMob: 16;
+        $fontSize: 20;
+        $fontSizeMob: 18;
         $lineHeight: 1.2;
     }
 

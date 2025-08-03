@@ -1,7 +1,6 @@
 @use "sass:math";
 @use "_mixins.scss" as *;
 @use "_colors.scss" as *;
-@use "_components.scss";
 
 
 .header {
@@ -86,8 +85,8 @@
             position: fixed;
             z-index: 2;
             block-size: toRem(64);
-            inset-inline-start: toRem(15);
             inset-block-start: toRem(15);
+            inset-inline-start: toRem(15);
             inset-inline-end: toRem(15);
 
             transition: visibility 0.3s ease;
@@ -127,7 +126,7 @@
             }
 
             .menu__link {
-                font-size: toRem(24);
+                font-size: toRem(28);
             }
         }
 
@@ -172,38 +171,34 @@
 
 
     // .actions-header__button
-    &__button {}
-
-    // .actions-header__icon-menu
-    &__icon-menu {}
-}
-
-.button {
-    @media (max-width:toEm($mobileSmall)) {
-        display: none;
-    }
-
-
-    // .button--transparent
-    &--transparent {}
-
-    // .button--mini
-    &--mini {
-        @media (max-width:toEm($tablet)) {
-            padding-inline: toRem(15);
+    &__button {
+        @media (max-width:toEm($mobileSmall)) {
+            display: none;
         }
 
+        &--mini {
+            @media (max-width:toEm($tablet)) {
+                padding-inline: toRem(15);
+            }
+
+        }
+    }
+
+    // .actions-header__icon-menu
+    &__icon-menu {
+        display: none;
     }
 }
 
+
 .icon-menu {
-    display: none;
+
 
     @media (max-width:toEm($mobile)) {
         display: block;
         inline-size: toRem(48);
         block-size: toRem(48);
-        position: relative;
+        position: sticky;
         z-index: 3;
 
         span,
@@ -226,7 +221,7 @@
         span {
             inset-inline-start: 50%;
             inset-block-start: 50%;
-            transform: translate(-50%, -50%);
+            translate: -50% -50%;
             inline-size: toRem(28);
         }
 
@@ -242,14 +237,9 @@
     .menu {
         @media (max-width:toEm($mobile)) {
             inset-inline-start: 0;
-        }
 
-    }
-
-    .menu {
-        @media (max-width:toEm($mobile)) {
             &::before {
-                visibility: hidden;
+                visibility: visible;
             }
         }
 
@@ -258,16 +248,19 @@
     .icon-menu {
         @media (max-width:toEm($mobile)) {
             span {
-                transform: translate(-50%, -50%) rotate(-45deg);
-
+                translate: -50% -50%;
+                rotate: -45deg;
+                inline-size: toRem(33);
             }
 
             &::before {
-                transform: translate(0, 1px) rotate(45deg);
+                translate: toRem(0) toRem(1);
+                rotate: 45deg;
             }
 
             &::after {
-                transform: translate(0, -2px) rotate(45deg);
+                translate: toRem(0) toRem(-1);
+                rotate: 45deg;
             }
         }
 

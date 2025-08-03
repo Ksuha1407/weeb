@@ -126,6 +126,7 @@ label {
   background-color: #0F172A;
 }
 .components__container {
+  padding: 1.875rem;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -137,28 +138,30 @@ label {
 }
 
 .button {
-  border-radius: 0.5rem;
   background-color: #9333EA;
+  border-radius: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.03125rem;
   padding-inline: 2.5rem;
   padding-block: 1rem;
   text-align: center;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 @media (min-width: 81.875em) {
   .button {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 @media (min-width: 20em) and (max-width: 81.875em) {
   .button {
-    font-size: clamp( 16px , 15.3535353535px  +  0.202020202vw , 18px );
+    font-size: clamp( 18px , 17.3535353535px  +  0.202020202vw , 20px );
   }
 }
 @media (max-width: 20em) {
   .button {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 @media (any-hover: hover) and (any-pointer: fine) {
@@ -166,72 +169,123 @@ label {
     background-color: #581C87;
   }
 }
-.button:active {
-  background-color: #581C87;
-}
 .button--transparent {
-  font-size: 1rem;
+  background-color: transparent;
   font-weight: 500;
   line-height: 1.5;
-  border-radius: 0.5rem;
-  letter-spacing: 0.0313rem;
-  text-align: center;
-  background: transparent;
   padding-inline: 1.5rem;
   padding-block: 0.75rem;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+@media (min-width: 81.875em) {
+  .button--transparent {
+    font-size: 16px;
+  }
+}
+@media (min-width: 20em) and (max-width: 81.875em) {
+  .button--transparent {
+    font-size: clamp( 14px , 13.3535353535px  +  0.202020202vw , 16px );
+  }
+}
+@media (max-width: 20em) {
+  .button--transparent {
+    font-size: 14px;
+  }
 }
 @media (any-hover: hover) and (any-pointer: fine) {
   .button--transparent:hover {
-    background-color: #581C87;
+    background-color: #9333EA;
   }
 }
-.button--transparent:active {
-  background-color: #9333EA;
-}
 .button--mini {
-  font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
-  border-radius: 0.5rem;
-  background-color: #9333EA;
-  letter-spacing: 0.03125rem;
-  text-align: center;
   padding-inline: 1.75rem;
   padding-block: 0.75rem;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+@media (min-width: 81.875em) {
+  .button--mini {
+    font-size: 16px;
+  }
+}
+@media (min-width: 20em) and (max-width: 81.875em) {
+  .button--mini {
+    font-size: clamp( 14px , 13.3535353535px  +  0.202020202vw , 16px );
+  }
+}
+@media (max-width: 20em) {
+  .button--mini {
+    font-size: 14px;
+  }
 }
 @media (any-hover: hover) and (any-pointer: fine) {
   .button--mini:hover {
     background-color: #581C87;
   }
 }
-.button--mini:active {
-  background-color: #581C87;
-}
 .button--white-border {
-  font-size: 1.125rem;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: 0.03125rem;
-  background: transparent;
+  background-color: transparent;
   border: 0.125rem solid #fff;
-  padding-inline: 1.9375rem;
-  padding-block: 1rem;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 @media (any-hover: hover) and (any-pointer: fine) {
   .button--white-border:hover {
     background-color: #581C87;
+    border-color: #581C87;
   }
 }
-.button--white-border:active {
-  background-color: #9333EA;
+@media (max-width: 29.99875em) {
+  .button.menu__button {
+    display: block;
+    font-size: 1.5rem;
+  }
 }
 
+.block-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2rem;
+}
+.block-header--center {
+  text-align: center;
+}
+.block-header__title {
+  font-weight: 800;
+  line-height: 1.1;
+}
+@media (min-width: 81.875em) {
+  .block-header__title {
+    font-size: 72px;
+  }
+}
+@media (min-width: 20em) and (max-width: 81.875em) {
+  .block-header__title {
+    font-size: clamp( 48px , 40.2424242424px  +  2.4242424242vw , 72px );
+  }
+}
+@media (max-width: 20em) {
+  .block-header__title {
+    font-size: 48px;
+  }
+}
+.block-header__purpur {
+  color: #9333EA;
+}
 .header {
   background-color: #0F172A;
 }
@@ -345,8 +399,8 @@ label {
     position: fixed;
     z-index: 2;
     block-size: 4rem;
-    inset-inline-start: 0.9375rem;
     inset-block-start: 0.9375rem;
+    inset-inline-start: 0.9375rem;
     inset-inline-end: 0.9375rem;
     -webkit-transition: visibility 0.3s ease;
     transition: visibility 0.3s ease;
@@ -397,7 +451,7 @@ label {
     margin-bottom: 1.875rem;
   }
   .menu__list .menu__link {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 }
 .menu__link {
@@ -456,25 +510,25 @@ label {
   }
 }
 @media (max-width: 29.99875em) {
-  .button {
+  .actions-header__button {
     display: none;
   }
 }
 @media (max-width: 61.99875em) {
-  .button--mini {
+  .actions-header__button--mini {
     padding-inline: 0.9375rem;
   }
 }
-
-.icon-menu {
+.actions-header__icon-menu {
   display: none;
 }
+
 @media (max-width: 47.99875em) {
   .icon-menu {
     display: block;
     inline-size: 3rem;
     block-size: 3rem;
-    position: relative;
+    position: sticky;
     z-index: 3;
   }
   .icon-menu span, .icon-menu::before, .icon-menu::after {
@@ -494,9 +548,7 @@ label {
   .icon-menu span {
     inset-inline-start: 50%;
     inset-block-start: 50%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    translate: -50% -50%;
     inline-size: 1.75rem;
   }
   .icon-menu::after {
@@ -510,27 +562,23 @@ label {
   .open-menu .menu {
     inset-inline-start: 0;
   }
-}
-@media (max-width: 47.99875em) {
   .open-menu .menu::before {
-    visibility: hidden;
+    visibility: visible;
   }
 }
 @media (max-width: 47.99875em) {
   .open-menu .icon-menu span {
-    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-        -ms-transform: translate(-50%, -50%) rotate(-45deg);
-            transform: translate(-50%, -50%) rotate(-45deg);
+    translate: -50% -50%;
+    rotate: -45deg;
+    inline-size: 2.0625rem;
   }
   .open-menu .icon-menu::before {
-    -webkit-transform: translate(0, 1px) rotate(45deg);
-        -ms-transform: translate(0, 1px) rotate(45deg);
-            transform: translate(0, 1px) rotate(45deg);
+    translate: 0rem 0.0625rem;
+    rotate: 45deg;
   }
   .open-menu .icon-menu::after {
-    -webkit-transform: translate(0, -2px) rotate(45deg);
-        -ms-transform: translate(0, -2px) rotate(45deg);
-            transform: translate(0, -2px) rotate(45deg);
+    translate: 0rem -0.0625rem;
+    rotate: 45deg;
   }
 }
 
@@ -539,6 +587,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: #fff;
+  background-color: #0F172A;
 }
 @media (min-width: 81.875em) {
   body {
@@ -558,7 +607,7 @@ body {
 
 .wrapper {
   overflow: clip;
-  min-block-size: 100%;
+  block-size: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

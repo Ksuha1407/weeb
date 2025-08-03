@@ -2,12 +2,12 @@
 @use "_colors.scss" as *;
 @use "_mixins.scss" as *;
 
-
 .components {
     background-color: $bluegrey-9;
 
     // .components__container
     &__container {
+        padding: toRem(30);
         display: inline-flex;
         flex-direction: column;
         gap: toRem(15);
@@ -15,13 +15,14 @@
 }
 
 .button {
-    border-radius: toRem(8);
     background-color: $purple-6;
-    @include typography('BL', 500);
+    border-radius: toRem(8);
+    @include typography("BL", 500);
     letter-spacing: toRem(0.5);
     padding-inline: toRem(40);
     padding-block: toRem(16);
     text-align: center;
+    transition: background-color 0.3s ease;
 
     @media (any-hover: hover) and (any-pointer: fine) {
         &:hover {
@@ -29,83 +30,98 @@
         }
     }
 
-    &:active {
-        background-color: $purple-9;
-    }
 
     // .button--transparent
     &--transparent {
-        @include typography("BM", 500, 1.5);
-        border-radius: toRem(8);
-        letter-spacing: 0.0313rem;
-        text-align: center;
-        background: transparent;
+        background-color: transparent;
+        @include typography("BM", 500);
         padding-inline: toRem(24);
         padding-block: toRem(12);
-        transition: all 0.3s ease;
+        transition: background-color 0.3s ease;
 
         @media (any-hover: hover) and (any-pointer: fine) {
             &:hover {
-                background-color: $purple-9;
+                background-color: $purple-6;
             }
-        }
-
-        &:active {
-            background-color: $purple-6;
         }
     }
 
     // .button--mini
     &--mini {
-        @include typography("BM", 500, 1.5);
-        border-radius: toRem(8);
-        background-color: $purple-6;
-        letter-spacing: toRem(0.5);
-        text-align: center;
+        @include typography("BM", 500);
         padding-inline: toRem(28);
         padding-block: toRem(12);
-        transition: all 0.3s ease;
+        transition: background-color 0.3s ease;
 
         @media (any-hover: hover) and (any-pointer: fine) {
             &:hover {
                 background-color: $purple-9;
             }
-        }
-
-        &:active {
-            background-color: $purple-9;
         }
     }
 
     // .button--white-border
     &--white-border {
-        @include typography("BL", 500, 1.2);
-        letter-spacing: toRem(0.5);
-        background: transparent;
+        background-color: transparent;
         border: toRem(2) solid $white;
-        padding-inline: toRem(31);
-        padding-block: toRem(16);
-        transition: all 0.3s ease;
+        transition: background-color 0.3s ease, color 0.3s ease;
 
         @media (any-hover: hover) and (any-pointer: fine) {
             &:hover {
                 background-color: $purple-9;
+                border-color: $purple-9;
             }
         }
+    }
 
-
-        &:active {
-            background-color: $purple-6;
+    &.menu__button {
+        @media (max-width:toEm($mobileSmall)) {
+            display: block;
+            font-size: toRem(24);
         }
     }
 }
 
-.components {}
+// ==============================================
 
-.button {}
+.hero {
 
-.button--mini {}
+    // .hero__block-header
+    &__block-header {}
+}
 
-.button--transparent {}
+.block-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: toRem(32);
 
-.button--white-border {}
+    // .block-header--center
+    &--center {
+        text-align: center
+    }
+
+    // .block-header__title
+    &__title {
+        @include typography("h1", 800);
+    }
+
+    // .block-header__line
+    &__line {
+
+        // .block-header__line--bottom
+        &--bottom {}
+
+        // .block-header__line--top
+        &--top {}
+    }
+
+    // .block-header__purpur
+    &__purpur {
+        color: $purple-6;
+    }
+
+    // .block-header__text
+    &__text {}
+}

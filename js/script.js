@@ -1,6 +1,5 @@
 "use strict"
 
-const burgerBtn = document.querySelector('.icon-menu');
 const body = document.documentElement;
 
 const menu = document.querySelector('.menu');
@@ -8,6 +7,7 @@ const actions = document.querySelector('.actions-header');
 
 const loginBtn = document.getElementById('loginButton');
 const joinBtn = document.getElementById('joinButton');
+const burgerBtn = actions.querySelector('.icon-menu'); // <-- важливо! Локально в actions
 
 function isMobile() {
     return window.innerWidth <= 767;
@@ -16,8 +16,10 @@ function isMobile() {
 burgerBtn.addEventListener('click', () => {
     body.classList.toggle('open-menu');
 
-    if (body.classList.contains('open-menu') && isMobile()) {
-        // Якщо кнопки ще в actions - видаляємо і додаємо в menu
+    const open = body.classList.contains('open-menu');
+
+    if (open && isMobile()) {
+        // Переміщуємо кнопки в .menu
         if (actions.contains(loginBtn)) actions.removeChild(loginBtn);
         if (actions.contains(joinBtn)) actions.removeChild(joinBtn);
 
@@ -27,15 +29,15 @@ burgerBtn.addEventListener('click', () => {
         menu.appendChild(loginBtn);
         menu.appendChild(joinBtn);
     } else {
-        // Якщо кнопки ще в menu - видаляємо і повертаємо в actions
+        // Повертаємо кнопки назад у .actions-header
         if (menu.contains(loginBtn)) menu.removeChild(loginBtn);
         if (menu.contains(joinBtn)) menu.removeChild(joinBtn);
 
         loginBtn.classList.remove('menu__button');
         joinBtn.classList.remove('menu__button');
 
-        // Вставляємо кнопки перед бургером, щоб бургер був останній
-        actions.insertBefore(loginBtn, burgerBtn);
+        // Вставляємо кнопки перед бургером
         actions.insertBefore(joinBtn, burgerBtn);
+        actions.insertBefore(loginBtn, burgerBtn);
     }
 });
